@@ -1,0 +1,30 @@
+function getFirstLetter(word) {
+    return word[0];
+  }
+  
+  
+  function decode(word) {
+    let firstLetter = getFirstLetter(word);  
+
+    let result = '';
+
+    const cipher = {
+      a: word[1], 
+      b: word[2],
+      c: word[3], 
+      d: word[4]
+    };
+
+    for (let i = 0; i < cipher.length; i++){
+        let check = cipher[i];
+        if (firstLetter === check) {
+        result.push(check)
+    }
+  
+        if (i in cipher === firstLetter) {
+        return cipher[i].property;
+        } else return " "
+   };
+   return result;
+}
+decode('block');
