@@ -1,0 +1,58 @@
+function createCharacter(name, nickname, race, origin, attack, defense, weapon) {
+    return {
+        name,
+        nickname,
+        race,
+        origin,
+        attack,
+        defense,
+        weapon,
+        describe: function() {;
+        return `${this.name} is a ${this.race} from ${this.origin} who uses ${this.weapon}.`
+        },
+        evaluateFight: function(character) {
+        let x = this.attack - character.defense;
+        let y = character.attack - this.defense;
+        if (x < 0) {
+            x === 0;
+        }
+        if (y < 0) {
+            y === 0;
+        }
+        return `Your opponent takes ${x} damage and you receive ${y} damage.`
+        }
+         
+    }
+}
+// , describe, evaluateFight , describe(), evaluateFight()
+let characters = [
+    createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6, 'wizard staff'),
+    createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1, 'the Ring'),
+    createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2, 'String and Barrow Blade'),
+    createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8, 'Anduril'),
+    createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5, 'Bow and arrow')
+];
+
+characters.push(createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendell', 8, 6, 'Hadhafang'));
+
+console.log(characters)
+
+let findAragorn = characters.find(characters => {
+  return characters.nickname === 'aragorn'
+});
+
+let describeAragorn = findAragorn.describe();
+
+console.log(describeAragorn);
+
+let onlyHobbits = characters.filter(characters => {
+  return characters.race === 'Hobbit'
+});
+
+console.log(onlyHobbits)
+
+let highAttack = characters.filter(characters => {
+  return characters.attack > 5
+});
+
+console.log(highAttack)
